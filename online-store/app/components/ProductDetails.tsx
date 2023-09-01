@@ -13,6 +13,7 @@ type Product = {
     count: number
   }
   price: number
+  totalPrice?: number
 }
 
 const ProductDetails = ({ data }: { data: Product }) => {
@@ -46,7 +47,11 @@ const ProductDetails = ({ data }: { data: Product }) => {
           </span>
           <button
             className='flex ml-auto text-white bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-blue-500 rounded'
-            onClick={() => dispatch(addToCart({ ...data, quantity: 1 }))}
+            onClick={() =>
+              dispatch(
+                addToCart({ ...data, totalPrice: data.price, quantity: 1 })
+              )
+            }
           >
             Add to Cart
           </button>

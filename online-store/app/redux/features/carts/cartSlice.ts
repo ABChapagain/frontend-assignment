@@ -1,4 +1,6 @@
 'use client'
+
+import useLocalStorage from '@/app/hooks/useLocalStorage'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type CartItems = {
@@ -22,22 +24,22 @@ export type CartState = {
   totalAmount: number
 }
 
-const items = localStorage.getItem('cartItems')
-  ? JSON.parse(localStorage.getItem('cartItems') as string)
-  : []
+// const items = localStorage.getItem('cartItems')
+//   ? JSON.parse(localStorage.getItem('cartItems') as string)
+//   : []
 
-const totalQuantity = localStorage.getItem('totalQuantity')
-  ? JSON.parse(localStorage.getItem('totalQuantity') as string)
-  : 0
+// const totalQuantity = localStorage.getItem('totalQuantity')
+//   ? JSON.parse(localStorage.getItem('totalQuantity') as string)
+//   : 0
 
-const totalAmount = localStorage.getItem('totalAmount')
-  ? JSON.parse(localStorage.getItem('totalAmount') as string)
-  : 0
+// const totalAmount = localStorage.getItem('totalAmount')
+//   ? JSON.parse(localStorage.getItem('totalAmount') as string)
+//   : 0
 
 const initialState: CartState = {
-  cartItems: items,
-  totalQuantity: totalQuantity,
-  totalAmount: totalAmount,
+  cartItems: [],
+  totalQuantity: 0,
+  totalAmount: 0,
 }
 
 export const cartSlice = createSlice({
@@ -75,9 +77,9 @@ export const cartSlice = createSlice({
         0
       )
 
-      localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
-      localStorage.setItem('totalQuantity', JSON.stringify(state.totalQuantity))
-      localStorage.setItem('totalAmount', JSON.stringify(state.totalAmount))
+      // localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+      // localStorage.setItem('totalQuantity', JSON.stringify(state.totalQuantity))
+      // localStorage.setItem('totalAmount', JSON.stringify(state.totalAmount))
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
       const id = action.payload
@@ -100,9 +102,9 @@ export const cartSlice = createSlice({
         0
       )
 
-      localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
-      localStorage.setItem('totalQuantity', JSON.stringify(state.totalQuantity))
-      localStorage.setItem('totalAmount', JSON.stringify(state.totalAmount))
+      // localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+      // localStorage.setItem('totalQuantity', JSON.stringify(state.totalQuantity))
+      // localStorage.setItem('totalAmount', JSON.stringify(state.totalAmount))
     },
 
     deleteFromCart: (state, action: PayloadAction<number>) => {
@@ -120,9 +122,9 @@ export const cartSlice = createSlice({
         0
       )
 
-      localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
-      localStorage.setItem('totalQuantity', JSON.stringify(state.totalQuantity))
-      localStorage.setItem('totalAmount', JSON.stringify(state.totalAmount))
+      // localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+      // localStorage.setItem('totalQuantity', JSON.stringify(state.totalQuantity))
+      // localStorage.setItem('totalAmount', JSON.stringify(state.totalAmount))
     },
   },
 })
