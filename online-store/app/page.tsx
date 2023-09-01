@@ -1,5 +1,9 @@
-import Image from 'next/image'
+import ProductLists from './components/ProductLists'
 
 export default function Home() {
-  return <main></main>
+  return (
+    <main>
+      <ProductLists />
+    </main>
+  )
 }
