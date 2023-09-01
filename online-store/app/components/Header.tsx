@@ -38,7 +38,7 @@ const Header = () => {
             <li>
               <Link
                 href={'/carts'}
-                className={pathname === '/cart' ? 'active' : ''}
+                className={pathname === '/carts' ? 'active' : ''}
               >
                 Cart ({cartItems?.cartItems.length})
               </Link>
@@ -73,10 +73,10 @@ const Header = () => {
 
             <li>
               <Link
-                href={'/cart'}
-                className={pathname === '/cart' ? 'active' : ''}
+                href={'/carts'}
+                className={pathname === '/carts' ? 'active' : ''}
               >
-                Cart (2)
+                Cart ({cartItems?.cartItems.length})
               </Link>
             </li>
           </ul>
