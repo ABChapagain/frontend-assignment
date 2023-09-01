@@ -28,7 +28,7 @@ const ProductLists = () => {
   return (
     <section className='py-5'>
       <div className='container mx-auto'>
-        <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-full lg:px-8'>
+        <div className='mx-auto max-w-2xl px-4 py-5 sm:px-6 sm:py-5 lg:max-w-full lg:px-8'>
           <h2 className='text-2xl font-bold tracking-tight text-gray-900'>
             Some Products
           </h2>

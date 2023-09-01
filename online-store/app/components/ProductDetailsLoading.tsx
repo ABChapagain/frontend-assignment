@@ -3,7 +3,7 @@ import React from 'react'
 const ProductDetailsLoading = () => {
   return (
     <div className='lg:w-4/5 mx-auto flex flex-wrap'>
-      <div className='lg:w-1/2 w-full object-cover object-center rounded border border-gray-200' />
+      <div className='lg:w-1/2 h-[400px] bg-gray-200 w-full object-cover object-center rounded border border-gray-200'></div>
       <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 space-y-2'>
         <div className='h-2 bg-gray-200 rounded w-16'></div>
         <div className='h-2 bg-gray-200 rounded w-full'></div>

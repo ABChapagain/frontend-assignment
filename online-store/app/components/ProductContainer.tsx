@@ -17,7 +17,7 @@ type Product = {
 export const ProductContainer = ({ product }: { product: Product }) => {
   return (
     <div className='group relative'>
-      <div className='aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80'>
+      <div className='h-80 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80'>
         <img
           src={product.image}
           alt={product.title}
@@ -32,7 +32,7 @@ export const ProductContainer = ({ product }: { product: Product }) => {
       </h3>
       <div className='mt-4 flex justify-between items-center'>
         <div>
-          <p className='mt-1 text-sm text-black font-bold'>{`$${product.price}`}</p>
+          <p className='mt-1 text-sm text-black font-bold'>{`Rs ${product.price}`}</p>
           <p className='mt-1 text-sm text-gray-500'>{product.category}</p>
         </div>
         <p className='text-sm font-medium text-gray-900'>

@@ -1,24 +1,28 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../redux/features/carts/cartSlice'
 
 type Product = {
-  id: Number
+  id: number
   title: string
   description: string
   image: string
   category: string
   rating: {
-    rate: Number
-    count: Number
+    rate: number
+    count: number
   }
-  price: Number
+  price: number
 }
 
 const ProductDetails = ({ data }: { data: Product }) => {
+  const dispatch = useDispatch()
+
   return (
     <div className='lg:w-4/5 mx-auto flex flex-wrap'>
       <img
         alt='ecommerce'
-        className='lg:w-1/2 w-full object-cover object-center rounded border border-gray-200'
+        className='lg:w-1/2 min-h-[400px] w-full object-cover object-center rounded border border-gray-200'
         src={data?.image}
       />
       <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
@@ -38,9 +42,12 @@ const ProductDetails = ({ data }: { data: Product }) => {
         <div className='flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5'></div>
         <div className='flex'>
           <span className='title-font font-medium text-2xl text-gray-900'>
-            ${`${data?.price}`}
+            Rs {`${data?.price}`}
           </span>
-          <button className='flex ml-auto text-white bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-blue-500 rounded'>
+          <button
+            className='flex ml-auto text-white bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-blue-500 rounded'
+            onClick={() => dispatch(addToCart({ ...data, quantity: 1 }))}
+          >
             Add to Cart
           </button>
         </div>

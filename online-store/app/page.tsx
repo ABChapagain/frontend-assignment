@@ -2,8 +2,8 @@ import ProductLists from './components/ProductLists'
 
 export default function Home() {
   return (
-    <main>
+    <section>
       <ProductLists />
-    </main>
+    </section>
   )
 }
