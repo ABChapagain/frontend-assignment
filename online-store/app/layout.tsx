@@ -3,6 +3,7 @@ import Header from './components/Header'
 import './globals.css'
 import { Poppins } from 'next/font/google'
 import { ReactQueryProvider } from './ReactQueryProvider'
+import { Providers } from './redux/provider'
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '700'] })
 
@@ -20,9 +21,11 @@ export default function RootLayout({
     <ReactQueryProvider>
       <html lang='en'>
         <body className={`${poppins.className} min-h-screen flex flex-col`}>
-          <Header />
-          <main className='flex-grow'>{children}</main>
-          <Footer />
+          <Providers>
+            <Header />
+            <main className='flex-grow'>{children}</main>
+            <Footer />
+          </Providers>
         </body>
       </html>
     </ReactQueryProvider>

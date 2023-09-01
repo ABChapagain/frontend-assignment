@@ -4,8 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import { usePathname } from 'next/navigation'
 
-import { CiMenuFries } from 'react-icons/ci'
-import { FaRegBell } from 'react-icons/fa'
+import ProductSearch from './ProductSearch'
 
 const Header = () => {
   const pathname = usePathname()
@@ -20,29 +19,12 @@ const Header = () => {
           >
             <h1 className='font-semibold'>Online Store</h1>
           </Link>
-          <form>
-            <input
-              type='text'
-              className='p-2 w-96 outline-none'
-              placeholder='Search for products'
-            />
-            <button className='btn btn-ghost bg-white p-2 border-l-2'>
-              Search
-            </button>
-          </form>
+          <ProductSearch />
 
           <ul className='flex gap-5'>
             <li>
               <Link className={pathname === '/' ? 'active' : ''} href={'/'}>
                 Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={pathname === '/shop' ? 'active' : ''}
-                href={'/shop'}
-              >
-                Shop
               </Link>
             </li>
 

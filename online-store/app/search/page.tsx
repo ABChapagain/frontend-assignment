@@ -1,36 +1,38 @@
 'use client'
 import React from 'react'
+import ProductLists from '../components/ProductLists'
 import { useQuery } from '@tanstack/react-query'
-import { ProductContainer } from './ProductContainer'
-import ProductLoading from './ProductLoading'
-import { useSelector, useDispatch } from 'react-redux'
+import { useRouter, useSearchParams } from 'next/navigation'
+import ProductLoading from '../components/ProductLoading'
+import { ProductContainer } from '../components/ProductContainer'
 
-type Product = {
-  id: Number
-  title: string
-  description: string
-  image: string
-  category: string
-  rating: {
-    rate: Number
-    count: Number
-  }
-  price: Number
-}
+const SearchPage = () => {
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
-const ProductLists = () => {
+  const [products, setProducts] = React.useState([])
+
+  const query = searchParams.get('q')
+
   const { isLoading, error, data } = useQuery({
-    queryKey: ['products'],
+    queryKey: ['search'],
     queryFn: () =>
       fetch('https://fakestoreapi.com/products').then((res) => res.json()),
   })
+
+  if (!query || query === '' || query === null) {
+    router.push('/')
+  }
+  const filteredProducts = data?.filter((product: any) =>
+    product.title.toLowerCase().includes(query!.toLowerCase())
+  )
 
   return (
     <section className='py-5'>
       <div className='container mx-auto'>
         <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-full lg:px-8'>
           <h2 className='text-2xl font-bold tracking-tight text-gray-900'>
-            Some Products
+            Result for the search "{query}"
           </h2>
           <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
             {isLoading ? (
@@ -39,8 +41,10 @@ const ProductLists = () => {
               ))
             ) : error ? (
               <div>Error fetching data</div>
+            ) : filteredProducts?.length === 0 ? (
+              <div className='text-center'>No products found</div>
             ) : (
-              data?.map((product: Product) => (
+              filteredProducts?.map((product: any) => (
                 <ProductContainer key={`${product.id}`} product={product} />
               ))
             )}
@@ -51,4 +55,4 @@ const ProductLists = () => {
   )
 }
 
-export default ProductLists
+export default SearchPage
