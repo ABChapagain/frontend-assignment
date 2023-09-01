@@ -16,21 +16,21 @@ type Product = {
 
 export const ProductContainer = ({ product }: { product: Product }) => {
   return (
-    <div className='group relative'>
-      <div className='h-80 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80'>
+    <div className='group relative border rounded shadow-sm px-2 py-3 flex flex-col justify-between'>
+      <div className='h-80 w-full overflow-hidden rounded-md bg-transparent lg:aspect-none group-hover:opacity-75 lg:h-80'>
         <img
           src={product.image}
           alt={product.title}
-          className='h-full w-full object-cover object-center lg:h-full lg:w-full'
+          className='h-full w-full object-contain object-center lg:h-full lg:w-full'
         />
       </div>
-      <h3 className='mt-4 text-md text-gray-700'>
+      <h3 className='mt-4 text-md text-gray-700 font-medium'>
         <Link href={`/products/${product.id}`}>
           <span aria-hidden='true' className='absolute inset-0' />
           {product.title}
         </Link>
       </h3>
-      <div className='mt-4 flex justify-between items-center'>
+      <div className='mt-4 flex justify-between items-center w-auto'>
         <div>
           <p className='mt-1 text-sm text-black font-bold'>{`Rs ${product.price}`}</p>
           <p className='mt-1 text-sm text-gray-500'>{product.category}</p>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/features/carts/cartSlice'
+import { toast } from 'react-toastify'
 
 type Product = {
   id: number
@@ -46,12 +47,13 @@ const ProductDetails = ({ data }: { data: Product }) => {
             Rs {`${data?.price}`}
           </span>
           <button
-            className='flex ml-auto text-white bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-blue-500 rounded'
-            onClick={() =>
+            className='flex ml-auto text-white bg-black border-0 py-2 px-6 focus:outline-none hover:bg-black/80'
+            onClick={() => {
               dispatch(
                 addToCart({ ...data, totalPrice: data.price, quantity: 1 })
               )
-            }
+              toast.success('Item added to cart')
+            }}
           >
             Add to Cart
           </button>

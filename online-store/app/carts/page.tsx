@@ -48,7 +48,7 @@ const CartPage = () => {
                     <div className='mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6'>
                       <div className='flex items-center border-gray-100'>
                         <span
-                          className='cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50'
+                          className='cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-black/80 hover:text-blue-50'
                           onClick={() => dispatch(removeFromCart(item.id))}
                         >
                           {' '}
@@ -61,7 +61,7 @@ const CartPage = () => {
                           min='1'
                         />
                         <span
-                          className='cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50'
+                          className='cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-black/80 hover:text-blue-50'
                           onClick={() => dispatch(addToCart(item))}
                         >
                           {' '}
@@ -112,7 +112,7 @@ const CartPage = () => {
               </div>
             </div>
             <button
-              className='mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600'
+              className='mt-6 w-full bg-black py-1.5 font-medium text-blue-50 hover:bg-black/80'
               onClick={() => alert('Checkout functionality not added!')}
             >
               Check out

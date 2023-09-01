@@ -17,12 +17,12 @@ const ProductSearch = () => {
     <form onSubmit={handleSubmit}>
       <input
         type='text'
-        className='p-2 outline-none w-56'
+        className='p-2 outline-none w-56 border'
         placeholder='Search for products'
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button className='btn btn-ghost bg-blue-400 text-white p-2 border-l-2'>
+      <button className='btn btn-ghost bg-black text-white p-2 px-3 border-l-2'>
         Search
       </button>
     </form>

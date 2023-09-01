@@ -17,7 +17,7 @@ const Header = () => {
   const [menu, setMenu] = React.useState(false)
 
   return (
-    <nav className='navbar bg-blue-100 sticky top-0 z-10 shadow-sm py-6'>
+    <nav className='navbar bg-slate-50 sticky top-0 z-10 shadow-sm py-6'>
       <div className='container px-4 mx-auto '>
         <div className='hidden lg:flex items-center justify-between w-full'>
           <Link

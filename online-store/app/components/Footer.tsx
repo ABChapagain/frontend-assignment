@@ -3,7 +3,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className='flex bg-blue-100 flex-col items-center gap-5 justify-center p-10'>
+    <footer className='flex bg-slate-50 flex-col items-center gap-5 justify-center p-10'>
       <p>Copyright &copy; {new Date().getFullYear()}</p>
       <p>
         Made with 💖 by{' '}
