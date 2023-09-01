@@ -4,16 +4,27 @@ import { useQuery } from '@tanstack/react-query'
 import { ProductContainer } from './ProductContainer'
 import ProductLoading from './ProductLoading'
 
+type Product = {
+  id: Number
+  title: string
+  description: string
+  image: string
+  category: string
+  rating: {
+    rate: Number
+    count: Number
+  }
+  price: Number
+}
+
 const ProductLists = () => {
   const { isLoading, error, data } = useQuery({
-    queryKey: ['repoData'],
+    queryKey: ['products'],
     queryFn: () =>
       fetch('https://fakestoreapi.com/products').then((res) => res.json()),
   })
 
-  if (error) {
-    return <div>Error fetching data</div>
-  }
+  console.log(isLoading, error, data)
 
   return (
     <section className='py-5'>
@@ -23,14 +34,17 @@ const ProductLists = () => {
             Some Products
           </h2>
           <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
-            {isLoading &&
-              Array.from({ length: 12 }, (_, index) => (
+            {isLoading ? (
+              Array.from({ length: 20 }, (_, index) => (
                 <ProductLoading key={index} />
-              ))}
-            {error && <div>Error fetching data</div>}
-            {data?.map((product: any) => (
-              <ProductContainer key={product.id} product={product} />
-            ))}
+              ))
+            ) : error ? (
+              <div>Error fetching data</div>
+            ) : (
+              data?.map((product: Product) => (
+                <ProductContainer key={`${product.id}`} product={product} />
+              ))
+            )}
           </div>
         </div>
       </div>

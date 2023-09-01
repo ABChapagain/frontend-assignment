@@ -13,10 +13,7 @@ const Footer = () => {
         </Link>
       </div>
       <div className='text-center space-y-3'>
-        <p>
-          Copyright &copy; {new Date().getFullYear()} - All right reserved by
-          Suchana
-        </p>
+        <p>Copyright &copy; {new Date().getFullYear()}</p>
         <p>
           Made with 💖 by{' '}
           <a
